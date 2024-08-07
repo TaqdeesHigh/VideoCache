@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoCache</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="#" class="logo">
+                        <i class="fas fa-film"></i>
+                        <span>VideoCache</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <button id="uploadNavButton" class="nav-button">
+                        <i class="fas fa-upload"></i>
+                        <span>Upload</span>
+                    </button>
+                    <button id="listNavButton" class="nav-button">
+                        <i class="fas fa-list"></i>
+                        <span>List</span>
+                    </button>
+                </nav>
+                <div class="header-actions">
+                    <button id="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="user-profile-dropdown">
+                        <button id="userProfileButton" aria-label="User profile" class="dropdown-toggle">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </header>
+        <main>
+            <div class="content-area">
+                <div id="upload-section" class="section active">
+                    <h2>Upload Your Video</h2>
+                    <div id="drop-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & Drop your video here or click to select</p>
+                        <input type="file" id="fileInput" accept="video/*" hidden>
+                    </div>
+                    <div class="download-link-area">
+                        <input type="text" id="downloadLinkInput" readonly placeholder="Download link will appear here">
+                    </div>
+                </div>
+                <div id="list-section" class="section">
+                    <div class="download-header">
+                        <h2 class="download-title">Your Files</h2>
+                        <div class="download-controls">
+                            <div class="search-bar">
+                                <input type="text" id="searchInput" placeholder="Search files...">
+                                <button id="searchButton"><i class="fas fa-search"></i></button>
+                            </div>
+                            <div class="view-toggle">
+                                <button id="listViewButton" class="active"><i class="fas fa-list"></i></button>
+                                <button id="gridViewButton"><i class="fas fa-th"></i></button>
+                            </div>
+                            <select id="sortSelect">
+                                <option value="date">Date</option>
+                                <option value="name">Name</option>
+                                <option value="size">Size</option>
+                            </select>
+                            <button id="clearAllButton" class="action-button">
+                                <i class="fas fa-trash-alt"></i> Clear All
+                            </button>
+                        </div>
+                    </div>
+                    <div id="linksList" class="download-list list-view">
+                        <!-- Download items will be dynamically added here -->
+                    </div>
+                    <div id="paginationControls" class="pagination-controls">
+                        <button id="prevPage" class="page-button"><i class="fas fa-chevron-left"></i></button>
+                        <span id="pageInfo">Page 1 of 1</span>
+                        <button id="nextPage" class="page-button"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div id="emptyState" class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <p>No files available.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-film"></i>
+                    <span>VideoCache</span>
+                </div>
+                <nav class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </nav>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="copyright">&copy; 2024 VideoCache. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <div id="customPopup" class="custom-popup">
+        <div class="popup-content">
+            <button id="popupClose" class="popup-close" aria-label="Close popup">&times;</button>
+            <h3 id="popupTitle"></h3>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
